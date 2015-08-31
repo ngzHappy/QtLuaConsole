@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
 #ifdef _WIN32
-    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
 #endif
     QApplication app(argc, argv);
 
