@@ -13,7 +13,7 @@ void lua_writestring(
         unsigned int l){
 	/* lua编码?? */
 	QString temp__ = QString::fromUtf8(s, l);
-	auto & qd__ = qDebug();
+    auto && qd__ = qDebug();
 	qd__.noquote();
 	qd__ << temp__;
 }
@@ -32,7 +32,7 @@ void lua_writestringerror(
         const char * s,
         const char * p){
     QString temp__ = QString::asprintf(s,p);
-	auto & qc__ = qCritical();
+    auto && qc__ = qCritical();
 	qc__.noquote();
 	qc__<< temp__;
 }
