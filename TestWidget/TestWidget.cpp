@@ -26,8 +26,8 @@ TESTWIDGETSHARED_EXPORT
 int luaopen_TestWidget(lua_State *L){
 
 	{
-		auto & ns = luabridge::getGlobalNamespace(L); 
-		ns.beginClass<TestWidget>("TestWidget_")
+        luabridge::getGlobalNamespace(L)
+            .beginClass<TestWidget>("TestWidget_")
 			.addConstructor<void(*)(void)>()
 			.addFunction("print_", &TestWidget::print)
 			.addFunction("show_",&TestWidget::show)

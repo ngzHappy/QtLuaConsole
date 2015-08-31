@@ -8,7 +8,7 @@ TestWidgetLIB.file = $$PWD/TestWidget/TestWidget.pro
 QLuaConsoleAPP.depends += LuaCoreLIB
 TestWidgetLIB.depends += LuaCoreLIB
 
-SUBDIRS += LuaCore \
+SUBDIRS += LuaCoreLIB \
     QLuaConsoleAPP \
     TestWidgetLIB
 
