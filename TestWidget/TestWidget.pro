@@ -25,3 +25,9 @@ LIBS += -L$$OutDirPath -lLuaCore
 
 DESTDIR = $$OutDirPath
 
+unix {
+    QMAKE_LFLAGS += -Wl,-rpath .
+}
+
+
+

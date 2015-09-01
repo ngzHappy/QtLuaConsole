@@ -30,6 +30,9 @@ DESTDIR = $$OutDirPath
 
 
 
+unix {
+    QMAKE_LFLAGS += -Wl,-rpath .
+}
 
 
 
