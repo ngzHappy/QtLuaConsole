@@ -1,4 +1,4 @@
-/*
+﻿/*
 ** $Id: luaconf.h,v 1.251 2015/05/20 17:39:23 roberto Exp $
 ** Configuration file for Lua
 ** See Copyright Notice in lua.h
@@ -219,7 +219,7 @@
 ** Marks for exported symbols in the C code
 ** ===================================================================
 */
-
+#include "luacore_global.h"
 /*
 @@ LUA_API is a mark for all core API functions.
 @@ LUALIB_API is a mark for all auxiliary library functions.
@@ -232,9 +232,9 @@
 #if defined(LUA_BUILD_AS_DLL)	/* { */
 
 #if defined(LUA_CORE) || defined(LUA_LIB)	/* { */
-#define LUA_API __declspec(dllexport)
+#define LUA_API Q_DECL_EXPORT
 #else						/* }{ */
-#define LUA_API __declspec(dllimport)
+#define LUA_API Q_DECL_IMPORT
 #endif						/* } */
 
 #else				/* }{ */
