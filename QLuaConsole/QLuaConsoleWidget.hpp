@@ -104,7 +104,8 @@ public  :
         for ( const auto & i:commans__ ) {
             __to__do__ +=( i.command + "\n" ).toUtf8() ;
         }
-        if (luaL_dostring(L, __to__do__.data())!=0) {
+        const auto & c__to__do__=__to__do__;
+        if (luaL_dostring(L, c__to__do__.data())!=0) {
             if (lua_gettop(L)) {
 
                 QTextCharFormat char__format__ =
