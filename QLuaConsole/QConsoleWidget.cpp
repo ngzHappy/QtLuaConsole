@@ -663,6 +663,7 @@ QConsoleWidget::_pf<void, SetToCommand>(
     if ( command.empty() ) {
         tc.removeSelectedText();
         thisp->setTextCursor(tc);
+		return ;
     }
 
     auto tryAddReturn = [](const QString & str)->QString {
