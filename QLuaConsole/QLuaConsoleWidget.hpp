@@ -133,6 +133,11 @@ private:
 
 		/*去掉多余的不可见元素*/
 		QString msg = [message__]()->QString {
+			/*
+			如果是换行符则保留
+			去除多余的空白元素
+			添加分隔符
+			*/
 			if (message__ == "\n") { return "\n"; }
 			QString ans = message__.trimmed();
 			if (ans.isEmpty()) { return ans; }
