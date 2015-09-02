@@ -134,11 +134,14 @@ private:
 		/*去掉多余的不可见元素*/
         QString msg = message__.trimmed();
         if (msg.isEmpty()) { return; }
-
+		
         /*去掉多余的""*/
         if (msg.startsWith(R"(")")&&msg.endsWith(R"(")")) {
             msg = msg.mid( 1,msg.size()-2 );
         }
+
+		/*添加分隔符*/
+		msg += " ";
 
         /*
         如果在非执行状态下重定向到默认(控制台)输出

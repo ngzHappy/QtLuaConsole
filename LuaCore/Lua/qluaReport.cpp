@@ -15,7 +15,7 @@ void lua_writestring(
 	QString temp__ = QString::fromUtf8(s, l);
     auto && qd__ = qDebug();
 	qd__.noquote();
-	qd__ << temp__;
+	qd__ << temp__ ;
 }
 
 /*
@@ -34,7 +34,7 @@ void lua_writestringerror(
     QString temp__ = QString::asprintf(s,p);
     auto && qc__ = qCritical();
 	qc__.noquote();
-	qc__<< temp__;
+	qc__<< temp__  ;
 }
 
 
