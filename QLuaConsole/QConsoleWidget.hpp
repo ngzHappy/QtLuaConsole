@@ -144,6 +144,8 @@ public:
 	{return thisp->getInnerCharFormat(); }
 private:
 	QConsoleWidget * thisp;
+	bool isInsertText_ = false;
+	void postInsertEvent_();
 protected:
 	void paintEvent(QPaintEvent *e)override;
 public:

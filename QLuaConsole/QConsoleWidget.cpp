@@ -1649,10 +1649,34 @@ QConsoleWidget::getInnerCharFormat()const {
 	return thisp->textCharFormat;
 }
 
+void QConsole::postInsertEvent_() {
+	/*
+	立即处理插入事件,但要防止死循环
+	*/
+	if (this->isInsertText_) { 
+		return; 
+	}
+
+	class Locker__ {
+		QConsole * t__ ;
+	public:
+		Locker__(QConsole * t___):t__(t___) {
+			t__->isInsertText_ = true;
+		}
+		~Locker__() { 
+			t__->isInsertText_ = false;
+		}
+	};
+
+	Locker__ __(this);
+	QApplication::processEvents();
+}
+
 void QConsole::insertText(
 	const QString & t,
 	const QTextCharFormat & f
 	) {
+
 	{
 		auto tc = thisp->textCursor();
 		tc.clearSelection();
@@ -1662,9 +1686,12 @@ void QConsole::insertText(
 	auto tc = thisp->textCursor();
 	tc.insertText( t ,f );
 	thisp->setTextCursor(tc);
+
+	postInsertEvent_();
 }
 
 void QConsole::insertText(const QString &t) {
+
 	{
 		auto tc = thisp->textCursor();
 		tc.clearSelection();
@@ -1674,6 +1701,8 @@ void QConsole::insertText(const QString &t) {
 	tc.setCharFormat( thisp->getInnerCharFormat());
 	tc.insertText(t);
 	thisp->setTextCursor(tc);
+
+	postInsertEvent_();
 }
 
 void QConsoleWidget::dragEnterEvent(QDragEnterEvent *e){

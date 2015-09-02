@@ -41,6 +41,7 @@
 #include <QDropEvent>
 #include <QTextCodec>
 #include <QDateTime>
+#include <QApplication>
 
 class CommandBufferManager{
     boost::circular_buffer< QList<QConsoleWidgetCommand> > commandBuffers;
